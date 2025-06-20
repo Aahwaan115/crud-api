@@ -19,3 +19,15 @@ Supports all four CRUD operations:
 - Works with both local and Atlas MongoDB instances
 - ⚡️ **Currently, this project has no frontend.**  
     _(A frontend will be added soon!)_
+  
+---
+
+## 💾 Database
+This project uses **MongoDB** as its database.  
+Integrated via **Mongoose** (`mongoose.connect()` in `index.js`) for seamless schema-based data modeling and interaction.
+
+---
+### Run the server
+```bash
+node index.js
+```
