@@ -6,11 +6,9 @@ require('dotenv').config();
 const app = express();
 const Item = require('./models/Item');
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Create
 app.post('/items', async (req, res) => {
   try {
     const item = new Item(req.body);
@@ -21,13 +19,11 @@ app.post('/items', async (req, res) => {
   }
 });
 
-// Read all
 app.get('/items', async (req, res) => {
   const items = await Item.find();
   res.json(items);
 });
 
-// Read one
 app.get('/items/:id', async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
@@ -37,7 +33,6 @@ app.get('/items/:id', async (req, res) => {
   }
 });
 
-// Update
 app.put('/items/:id', async (req, res) => {
   try {
     const updated = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -47,7 +42,6 @@ app.put('/items/:id', async (req, res) => {
   }
 });
 
-// Delete
 app.delete('/items/:id', async (req, res) => {
   try {
     const deleted = await Item.findByIdAndDelete(req.params.id);
@@ -57,7 +51,6 @@ app.delete('/items/:id', async (req, res) => {
   }
 });
 
-// Start server
 const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
