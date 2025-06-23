@@ -62,7 +62,7 @@ Tests cover:
 ### ✅ Screenshot
 ```
 
-![CRUD_API](Images\test_coverage.png)
+![CRUD_API](\test_coverage.png)
 
 ```
 
