@@ -51,19 +51,14 @@ app.put('/items/:id', async (req, res) => {
 app.delete('/items/:id', async (req, res) => {
   try {
     const deleted = await Item.findByIdAndDelete(req.params.id);
-    deleted ? res.json({ message: 'Deleted' }) : res.status(404).send('Not Found');
+    if (!deleted) {
+      return res.status(404).send({ error: 'Item not found' });
+    }
+    res.json(deleted);
   } catch (error) {
     res.status(400).send(error.message);
   }
 });
 
-// Start server
-const PORT = process.env.PORT || 5000;
-mongoose.connect(process.env.MONGO_URL)
-  .then(() => {
-    console.log('✅ Connected to MongoDB');
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running at http://localhost:${PORT}`);
-    });
-  })
-  .catch(err => console.error(err));
+module.exports = app;
+
