@@ -61,7 +61,7 @@ Tests cover:
 
 ### ✅ Screenshot
 ```
-![Test Coverage](Images/test_coverage.png)
+![Test Coverage](images/test_coverage.png)
 
 ```
 
